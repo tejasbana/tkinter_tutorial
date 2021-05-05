@@ -18,16 +18,26 @@ def button_click(number):
 def button_clear():
 	e.delete(0,END)
 
-def button_add():
+def button_operate(button_sign):
 	first_number = e.get()
-	global f_num 
+	global f_num, operation
 	f_num = int(first_number)
+	operation = button_sign
 	e.delete(0, END)
 
 def button_equal():
-	num_sum = f_num + int(e.get())
+	answer = 0
+	if operation == "+":
+		answer = f_num + int(e.get())
+	elif operation == "-":
+		answer = f_num - int(e.get())
+	elif operation == "*":
+		answer = f_num * int(e.get())
+	elif operation == "/":
+		answer = f_num / int(e.get())
+
 	e.delete(0, END)
-	e.insert(0, num_sum)
+	e.insert(0, answer)
 
 # Define button widget
 button_1 = Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
@@ -40,9 +50,14 @@ button_7 = Button(root, text="7", padx=40, pady=20, command=lambda: button_click
 button_8 = Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8))
 button_9 = Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
 button_0 = Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
-button_add = Button(root, text="+", padx=39, pady=20, command=button_add)
+
+button_add = Button(root, text="+", padx=39, pady=20, command=lambda: button_operate("+"))
 button_equal = Button(root, text="=", padx=91, pady=20, command=button_equal)
 button_clear = Button(root, text="Clear", padx=79, pady=20, command=button_clear)
+
+button_substract = Button(root, text="-", padx=41, pady=20, command=lambda: button_operate("-"))
+button_divide = Button(root, text="/", padx=43, pady=20, command=lambda: button_operate("/"))
+button_multiply = Button(root, text="*", padx=42, pady=20, command=lambda: button_operate("*"))
 
 
 # Put buttons on the screen
@@ -62,6 +77,12 @@ button_0.grid(row=4, column=0)
 button_clear.grid(row=4, column=1, columnspan=2)
 button_add.grid(row=5, column=0)
 button_equal.grid(row=5, column=1, columnspan=2)
+
+button_substract.grid(row=6, column=0)
+button_divide.grid(row=6, column=1)
+button_multiply.grid(row=6, column=2)
+
+
 
 
 # myButton = Button(root, text="Click Me!", padx=50,
