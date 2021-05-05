@@ -7,16 +7,25 @@ root.title("Simple Calculator")
 e = Entry(root, width=35, borderwidth=5, bg="black", fg="white")
 e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
 # Default value for entry box
-e.insert(0, "Enter Your Name:  ")
+# e.insert(0, "Enter")
 
-# e.get() to get the content of entry
-# Get the content of input box after button has been clicked
-def gotClicked():
-	outpus_string = "Hello " + e.get()
-	myLabel = Label(root, text=outpus_string)
-	myLabel.pack()
+def button_add():
+	return
 
 # Define button widget
+button_1 = Button(root, text="1", command=button_add)
+button_2 = Button(root, text="2", command=button_add)
+button_3 = Button(root, text="3", command=button_add)
+button_4 = Button(root, text="4", command=button_add)
+button_5 = Button(root, text="5", command=button_add)
+button_6 = Button(root, text="6", command=button_add)
+button_7 = Button(root, text="7", command=button_add)
+button_8 = Button(root, text="8", command=button_add)
+button_9 = Button(root, text="9", command=button_add)
+button_0 = Button(root, text="0", command=button_add)
+
+
+
 myButton = Button(root, text="Click Me!", padx=50,
 						fg="red", bg="#000000", 
 				  		command=gotClicked)
