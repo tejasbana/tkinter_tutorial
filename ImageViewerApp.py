@@ -44,14 +44,28 @@ def next_image(image_number):
 	button_next.grid(row=1, column=2)
 
 
-def prev_image():
+def prev_image(image_number):
 	global image_label
 	global button_next
 	global button_prev
 
+	image_label.grid_forget()
+
+	image_label = Label(image=image_list[image_number - 1])
+	button_prev = Button(root, text="<<", command=lambda: prev_image(image_number-1))
+	button_next = Button(root, text=">>", command=lambda: next_image(image_number+1))
+
+	if image_number == 1:
+		button_prev = Button(root, text="<<", command=DISABLED)
+
+
+	image_label.grid(row=0, column=0, columnspan=3)
+	button_prev.grid(row=1, column=0)
+	button_next.grid(row=1, column=2)
+
 
 # Buttons
-button_prev = Button(root, text="<<", command=prev_image)
+button_prev = Button(root, text="<<", command=lambda: next_image(1))
 button_quit = Button(root, text="Exit Program", command=root.quit)
 button_next = Button(root, text=">>", command=lambda: next_image(2))
 
