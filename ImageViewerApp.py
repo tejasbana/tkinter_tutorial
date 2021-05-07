@@ -30,8 +30,18 @@ def next_image(image_number):
 	global button_prev
 
 	image_label.grid_forget()
+
 	image_label = Label(image=image_list[image_number - 1])
+	button_prev = Button(root, text="<<", command=lambda: prev_image(image_number-1))
+	button_next = Button(root, text=">>", command=lambda: next_image(image_number+1))
+
+	if image_number == 3:
+		button_next = Button(root, text=">>", command=DISABLED)
+
+
 	image_label.grid(row=0, column=0, columnspan=3)
+	button_prev.grid(row=1, column=0)
+	button_next.grid(row=1, column=2)
 
 
 def prev_image():
