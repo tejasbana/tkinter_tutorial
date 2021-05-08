@@ -17,7 +17,9 @@ for i in range(3):
 
 
 # Current status
-status = Label(root, text="Image 1 of "+ str(len(image_list)), bd=1, relief=SUNKEN)
+status = Label(root, text="Image 1 of "+ str(len(image_list)), 
+				bd=1, relief=SUNKEN,
+				anchor=E)
 
 # Display first image
 image_label = Label(image=image_list[0])
@@ -73,7 +75,7 @@ button_next = Button(root, text=">>", command=lambda: next_image(2))
 button_prev.grid(row=1, column=0)
 button_quit.grid(row=1, column=1)
 button_next.grid(row=1, column=2, pady=10)
-status.grid(row=2, column=0, columnspan=3)
+status.grid(row=2, column=0, columnspan=3, sticky=W+E)
 
 
 root.mainloop()
