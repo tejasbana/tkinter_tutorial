@@ -45,6 +45,14 @@ def next_image(image_number):
 	button_prev.grid(row=1, column=0)
 	button_next.grid(row=1, column=2)
 
+	# Update Status
+	status = Label(root, text="Image "+str(image_number)+" of "+ str(len(image_list)), 
+				bd=1, relief=SUNKEN,
+				anchor=E)
+
+	status.grid(row=2, column=0, columnspan=3, sticky=W+E)
+
+
 
 def prev_image(image_number):
 	global image_label
@@ -64,6 +72,13 @@ def prev_image(image_number):
 	image_label.grid(row=0, column=0, columnspan=3)
 	button_prev.grid(row=1, column=0)
 	button_next.grid(row=1, column=2)
+
+	# Update Status
+	status = Label(root, text="Image "+str(image_number)+" of "+ str(len(image_list)), 
+				bd=1, relief=SUNKEN,
+				anchor=E)
+
+	status.grid(row=2, column=0, columnspan=3, sticky=W+E)
 
 
 # Buttons
