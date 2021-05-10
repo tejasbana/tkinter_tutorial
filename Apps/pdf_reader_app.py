@@ -13,4 +13,8 @@ logo_label = tk.Label(image=logo)
 logo_label.image = logo
 logo_label.grid(column=1, row=0)
 
+# Instruction 
+instruction = tk.Label(root, text="Select a PDF file on your computer to extract all its text", font="Raleway")
+instruction.grid(columnspan=3, column=0, row=1)
+
 root.mainloop()
