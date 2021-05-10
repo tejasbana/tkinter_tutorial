@@ -27,4 +27,10 @@ browse_text.set("Browse")
 browse_btn.grid(column=1, row=2)
 
 
+# Create a canvas of specific size
+canvas = tk.Canvas(root, width=600, height=250)
+canvas.grid(columnspan=3) 
+
+
+
 root.mainloop()
