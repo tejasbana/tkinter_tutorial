@@ -17,4 +17,11 @@ logo_label.grid(column=1, row=0)
 instruction = tk.Label(root, text="Select a PDF file on your computer to extract all its text", font="Raleway")
 instruction.grid(columnspan=3, column=0, row=1)
 
+# Browse Button with variable text message
+browse_text = tk.StringVar()
+browse_btn = tk.Button(root, textvariable=browse_text, font="Raleway")
+browse_text.set("Browse")
+browse_btn.grid(column=1, row=2)
+
+
 root.mainloop()
