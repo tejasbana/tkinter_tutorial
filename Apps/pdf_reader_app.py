@@ -1,5 +1,7 @@
 import tkinter as tk
+import PyPDF2
 from PIL import Image, ImageTk
+from tkinter.filedialog import askopenfile, askopenfilename
 
 root = tk.Tk()
 # Create a canvas of specific size
@@ -18,9 +20,27 @@ logo_label.grid(column=1, row=0)
 instruction = tk.Label(root, text="Select a PDF file on your computer to extract all its text", font="Raleway")
 instruction.grid(columnspan=3, column=0, row=1)
 
+def open_file():
+	browse_text.set("Loading...")
+	file = askopenfile( mode='rb', filetypes=[("Pdf file", "*.pdf")], parent=root, title="Choose a file")
+	# file = askopenfilename(filetypes=[("Pdf file", "*.pdf")])
+	# file = askopenfile(parent=root, mode='rb', title="Choose a file",
+	# 				                filetype=[("Pdf file", "*.pdf")] )
+	if file:
+		read_pdf = PyPDF2.PdfFileReader(file)
+		page = read_pdf.getPage(0)
+		page_content = page.extractText()
+
+		# Text Box
+		text_box = tk.Text(root, height=10, width=50, padx=15, pady=15)
+		text_box.insert(1.0, page_content)
+		text_box.grid(column=1, row=3)
+
+
 # Browse Button with variable text message
 browse_text = tk.StringVar()
 browse_btn = tk.Button(root, textvariable=browse_text, font="Raleway",
+					   command=lambda:open_file(),
 					   highlightbackground="#20bebe", bg="#20BEBE", fg="Black", height=2, width=15)
 
 browse_text.set("Browse")
