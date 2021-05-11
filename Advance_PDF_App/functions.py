@@ -53,14 +53,14 @@ def extract_images(page):
 def resize_img(img):
     width, height = int(img.size[0]), int(img.size[1])
     if width > height:
-        height = int( (300/width) * height)
+        height = int( 300/width* height)
         width = 300
     elif height > width:
-        width = int( (250/height) * width)
+        width = int( 250/height * width)
         height = 250
     else:
         width, height = 250, 250
-        
+
     img = img.resize((width,height))
     return img
 
