@@ -11,8 +11,23 @@ root.geometry('+%d+%d'%(350,10)) #place GUI at x=350, y=10
 header = Frame(root, width=800, height=175, bg="white")
 header.grid(columnspan=3, rowspan=2, row=0)
 
+img_menu = Frame(root, width=800, height=60)
+img_menu.grid(columnspan=3, rowspan=1, row=2)
+
+what_img = Label(root, text="Image 1 of 5", font=("shanti",10))
+what_img.grid(row=2, column=1)
+
+
 save_img = Frame(root, width=800, height=60, bg="#c8c8c8")
 save_img.grid(columnspan=3, rowspan=1, row=3)
+
+copyText_btn = Button(root, text="copy text", font=("shanti",10), height=1, width=15)
+saveAll_btn = Button(root, text="save all images", font=("shanti",10), height=1, width=15)
+save_btn = Button(root, text="save image", font=("shanti",10), height=1, width=15)
+
+copyText_btn.grid(row=3, column=0)
+saveAll_btn.grid(row=3, column=1)
+save_btn.grid(row=3, column=2)
 
 #main content area - text and image extraction
 main_content = Frame(root, width=800, height=250, bg="#20bebe")
