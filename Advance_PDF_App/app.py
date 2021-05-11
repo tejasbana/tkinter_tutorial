@@ -39,7 +39,7 @@ instructions.grid(column=2, row=0, sticky=SE, padx=75, pady=5)
 
 #browse button
 browse_text = StringVar()
-browse_btn = Button(root, textvariable=browse_text, command=lambda:open_file(), font=("Raleway",12), bg="#20bebe", fg="white", height=1, width=15)
+browse_btn = Button(root, textvariable=browse_text, command=lambda:open_file(), font=("Raleway",12), highlightbackground="#20bebe", bg="#20bebe", fg="black", height=1, width=15)
 browse_text.set("Browse")
 browse_btn.grid(column=2, row=1, sticky=NE, padx=50)
 
