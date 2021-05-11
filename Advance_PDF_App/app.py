@@ -11,9 +11,12 @@ root.geometry('+%d+%d'%(350,10)) #place GUI at x=350, y=10
 header = Frame(root, width=800, height=175, bg="white")
 header.grid(columnspan=3, rowspan=2, row=0)
 
+save_img = Frame(root, width=800, height=60, bg="#c8c8c8")
+save_img.grid(columnspan=3, rowspan=1, row=3)
+
 #main content area - text and image extraction
 main_content = Frame(root, width=800, height=250, bg="#20bebe")
-main_content.grid(columnspan=3, rowspan=2, row=2)
+main_content.grid(columnspan=3, rowspan=2, row=4)
 
 def open_file():
     browse_text.set("loading...")
@@ -25,8 +28,8 @@ def open_file():
         #page_content = page_content.encode('cp1252')
         page_content = page_content.replace('\u2122', "'")
 
-        #show text box on row 2 col 0
-        display_textbox(page_content, 2, 0, root)
+        #show text box on row 4 col 0
+        display_textbox(page_content, 4, 0, root)
 
         #reset the button text back to Browse
         browse_text.set("Browse")
